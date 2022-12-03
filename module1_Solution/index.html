@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="LunchCheck">
+<head>
+    <meta charset="utf-8" />
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Module 1 Solution</title>
+</head>
+<body>
+    <h1>Module 1 - Lunch Check</h1>
+    <div ng-controller="LunchCheckController">
+        <div>
+            <div>Enter Items you eat for lunch: <br/>
+            <b><em>Seperated by comma</em></b></div>
+            <input type="text" id="LunchItems" ng-model="inputLunchItems">&nbsp;
+            <button ng-click="DisplayOutput();">Check Items</button>
+        </div>
+        <br/>
+        <div>
+            <h3 style="color:{{StatusColor}}">{{Status}}</h3>
+        </div>
+    </div>
+</body>
+</html>
