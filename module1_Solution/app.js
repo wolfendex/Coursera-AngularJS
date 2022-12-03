@@ -48,14 +48,17 @@
 
             if (arraycnt === 0) {
                 $scope.StatusColor = "red"
-                return 'Empty String!';
+                $scope.tbBorderColor = "red"
+                return 'Please enter data first!';
             }
             else if (arraycnt <= 3) {
                 $scope.StatusColor = "green"
+                $scope.tbBorderColor = "green"
                 return 'Enjoy!';
             }
             else {
-                $scope.StatusColor = "red"
+                $scope.StatusColor = "green"
+                $scope.tbBorderColor = "green"
                 return 'Too Much!';
             }
         };
