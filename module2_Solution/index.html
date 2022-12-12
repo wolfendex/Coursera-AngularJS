@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="ShoppingListCheckOff">
+<head>
+    <meta charset="utf-8" />
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Module 2 - Shopping List CheckOff</title>
+</head>
+<body>
+    <h1>Shopping List</h1>
+    <div class="col-md-12">
+        <div id="list1" ng-controller="ToBuyController as list1">
+            <h3>To Buy:</h3>
+            <ol>
+                <li ng-repeat="item in list1.items">
+                    Buy {{ item.quantity }} {{ item.name }}
+                    <button ng-click="list1.removeItem($index);">Bought</button>
+                </li>
+            </ol>
+            <div style="color:green" ng-show="!list1.items.length">Everything is Bought!</div>
+            <div style="color:red" ng-if="list2.errorMessage">Error: {{list1.errorMessage}}</div>
+        </div>
+
+        <div id="list2" ng-controller="AlreadyBoughtController as list2">
+            <h3>Already Bought:</h3>
+            <ol>
+                <li ng-repeat="item in list2.items">
+                    Bought {{ item.quantity }} {{ item.name }}
+                    <button ng-click="list2.removeItem($index);">Remove Item</button>
+                </li>
+            </ol>
+            <div style="color:red" ng-show="!list2.items.length">Nothing Bought Yet!</div>
+            <div style="color:red" ng-if="list2.errorMessage">Error: {{list2.errorMessage}}</div>
+        </div>
+    </div>
+    
+</body>
+</html>
