@@ -2,33 +2,7 @@
 (function () {
     'use strict'; 
 
-    var ToBuyShoppingList = [
-        {
-            name: "2% Milk",
-            quantity: "1"
-        },
-        {
-            name: "Strawberries",
-            quantity: "2"
-        },
-        {
-            name: "Orange Juice",
-            quantity: "1"
-        },
-        {
-            name: "Paper Towels",
-            quantity: "5"
-        },
-        {
-            name: "Coffee",
-            quantity: "3"
-        }
-
-    ];
-
-    var AlreadyBoughtShoppingList = [];
-
-
+    
     angular.module("ShoppingListCheckOff", [])
         .controller('ToBuyController', ToBuyController)
         .controller('AlreadyBoughtController', AlreadyBoughtController)
@@ -87,8 +61,32 @@
 
     function ShoppingListCheckOffService() {
         var service = this;
-        var ToBuyitems = ToBuyShoppingList;
-        var BoughtItems = AlreadyBoughtShoppingList;
+
+        var ToBuyitems = [
+            {
+                name: "2% Milk",
+                quantity: "1"
+            },
+            {
+                name: "Strawberries",
+                quantity: "2"
+            },
+            {
+                name: "Orange Juice",
+                quantity: "1"
+            },
+            {
+                name: "Paper Towels",
+                quantity: "5"
+            },
+            {
+                name: "Coffee",
+                quantity: "3"
+            }
+
+        ];
+
+        var BoughtItems = [];
        
         service.addItem = function (itemName, quantity) {
             if ((maxItems === undefined) ||
@@ -112,8 +110,8 @@
                 quantity: ToBuyitems[itemIndex].quantity
             };
 
-            AlreadyBoughtShoppingList.push(bitem);
-            ToBuyShoppingList.splice(itemIndex, 1);
+            BoughtItems.push(bitem);
+            ToBuyitems.splice(itemIndex, 1);
         }
 
         service.removeBoughtItem = function (itemIndex) {
@@ -122,8 +120,8 @@
                 quantity: BoughtItems[itemIndex].quantity
             };
 
-            ToBuyShoppingList.push(nbitem);
-            AlreadyBoughtShoppingList.splice(itemIndex, 1);
+            ToBuyitems.push(nbitem);
+            BoughtItems.splice(itemIndex, 1);
         }
 
         service.getToBuyItems = function () {
