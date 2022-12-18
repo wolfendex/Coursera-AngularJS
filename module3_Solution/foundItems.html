@@ -1,0 +1,17 @@
+<head>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    Number of Items:{{items.length}}
+    <ul>
+        <li ng-repeat="item in items" >
+            <div class="card card-group pt-2">
+                <button class="btn btn-sm" style="border-color:red" ng-click="onRemove({index: $index});">Don't want this one!</button>&nbsp;-->
+                <b>{{item.name}}</b><i> ({{(item.short_name)}})</i> - {{ item.description }}
+            </div>           
+        </li>
+    </ul>
+    <hr />
+    <div class="text-danger" ng-if="!items.length">Nothing Found.</div>
+</body>
