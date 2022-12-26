@@ -1,0 +1,10 @@
+<a class="btn btn-link" ui-sref="home">Home</a> |
+<a class="btn btn-link" ui-sref="categories">Categories</a> |
+<span class="btn"> Category: {{itemList.category.short_name}} </span>
+
+<h3>Menu items for Category: <i>{{itemList.category.name}}</i></h3>
+<div>
+    {{itemList.category.special_instructions}}
+</div>
+<items items="itemList.items"></items>
+
