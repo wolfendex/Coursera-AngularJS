@@ -1,0 +1,23 @@
+<br/>
+<div class="container" ng-hide="userInfoCtrl.user">
+    "You are not signed in!"
+    <a ui-sref="public.signup" href="#/signup">Sign Up Here!</a>
+</div> 
+
+
+<div class="container" ng-show="userInfoCtrl.user">
+    Welcome, {{userInfoCtrl.user.firstName}} {{userInfoCtrl.user.lastName}}!
+
+    <br/><br/>
+    <b>Registration Info:</b>
+    <br/><br/>
+    Phone Number: {{userInfoCtrl.user.phone}}
+    <br/>
+    Email Address: {{userInfoCtrl.user.email}}
+    <br/><br/>
+    <div class="">
+        Your Favorite Menu Item:
+        <br /><br/>
+        <menu-item menu-item="userInfoCtrl.user.favItemChoice" category-short-name="userInfoCtrl.user.favItemCat.substring(0,1)"></menu-item>
+    </div>
+</div>

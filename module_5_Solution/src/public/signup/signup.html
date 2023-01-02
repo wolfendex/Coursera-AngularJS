@@ -1,0 +1,54 @@
+<div class="container">
+    <h2 id="signup-title" class="text-center">Sign Up to our Newsletter Today!</h2>
+    <div class="text-center">
+        Please fill in the following form with all required input before submitting.
+    </div>
+    
+    <form name="signUpForm" novalidate>
+        <div class="form-group" ng-class="{'form-error': (signUpForm.ipFName.$error.minlength || signUpForm.ipFName.$error.required) && signUpForm.ipFName.$touched}">
+            <div class="form-group" style="width:16em">
+                <label class="text-white control-label" for="ipFName">First Name</label>
+                <input type="text" ng-model="signUpCtrl.user.firstName" class="form-control ng-pristine ng-invalid ng-invalid-required" name="ipFName" placeholder="First Name" required minlenth="2" width="4" />
+                <span ng-if="signUpForm.ipFName.$invalid && signUpForm.ipFName.$touched">First Name is Required (minimum length 2 characters)</span>
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{'form-error': (signUpForm.ipLName.$error.minlength || signUpForm.ipLName.$error.required) && signUpForm.ipLName.$touched}">
+            <div class="form-group" style="width:16em">
+                <label class="text-white control-label" for="ipLName">Last Name</label>
+                <input type="text" ng-model="signUpCtrl.user.lastName" class="form-control" name="ipLName" placeholder="Last Name" required minlength="3" width="4" />
+                <span ng-if="signUpForm.ipLName.$invalid && signUpForm.ipLName.$touched">Last Name is Required (minimum length 3 characters)</span>
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{'form-error': (signUpForm.ipPhone.$error.minlength || signUpForm.ipPhone.$error.required) && signUpForm.ipPhone.$touched}">
+            <div class="form-group" style="width:16em">
+                <label class="text-white control-label" for="ipPhone">Phone #</label>
+                <input type="tel" ng-model="signUpCtrl.user.phone" class="form-control" name="ipPhone" placeholder="###-###-####" required width="4" pattern="^\d{3}-\d{3}-\d{4}$"/>
+                <span ng-if="signUpForm.ipPhone.$invalid && signUpForm.ipPhone.$touched">Invalid Phone Number.  Please use format ###-###-####.</span><br/>
+                <span ng-if="signUpForm.ipPhone.$error.required && signUpForm.ipPhone.$touched">Phone Number is Required.</span>
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{'form-error': (signUpForm.ipEmail.$error.minlength || signUpForm.ipEmail.$error.required) && signUpForm.ipEmail.$touched}">
+            <div class="form-group" style="width:16em">
+                <label class="text-white control-label" for="ipLName">Email Address</label>
+                <input type="email" ng-model="signUpCtrl.user.email" class="form-control" name="ipEmail" placeholder="Email Address" required width="4" />
+                <span ng-if="signUpForm.ipEmail.$invalid && signUpForm.ipEmail.$touched">Email Address is Invalid</span>
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{'form-error': (signUpForm.ipfavItem.$error.minlength || signUpForm.ipfavItem.$error.required) && signUpForm.ipfavItem.$touched}">
+            <div class="form-group" style="width:16em">
+                <label class="text-white control-label" for="ipLName">Favorite Item</label>
+                <input type="text" ng-model="signUpCtrl.user.favitem" class="form-control" name="ipfavItem" placeholder="A1, A2, A10, etc." required width="4" />
+                <span ng-show="signUpCtrl.ErrorMsg">{{signUpCtrl.ErrorMsg}}</span>
+            </div>
+        </div>
+
+        <br />
+        <button ng-disabled="signUpForm.$invalid" ng-click="signUpCtrl.signUp()" type="submit" ng-hide="signUpCtrl.isRegistered" disabled="disabled" class="btn btn-success">Sign Up!</button>
+        <span ng-show="signUpCtrl.isRegistered" class="ng-binding ng-hide">Thank you for registering!  Your information has been saved!</span>
+    </form>
+
+</div>
